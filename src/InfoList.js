@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
+import './CSS/InfoList.css';
 
 const InfoList = () => {
   const [infos, setInfos] = useState([]);
   const [newInfo, setNewInfo] = useState({
     title: "",
     description: "",
+    wiki_like:"",
     price: "",
     coverImg: "",
-    stats: { rating: "", reviewCount: "" }, // Assuming stats has rating and reviewCount
+    stats: { rating: "", reviewCount: "" },
     location: "",
     openSpots: ""
   });
@@ -46,6 +48,7 @@ const InfoList = () => {
     setNewInfo({
       title: info.title,
       description: info.description,
+      wiki_link: info.wiki_link,
       price: info.price,
       coverImg: info.coverImg,
       stats: info.stats,
@@ -74,6 +77,7 @@ const InfoList = () => {
         setNewInfo({
           title: "",
           description: "",
+          wiki_link:"",
           price: "",
           coverImg: "",
           stats: { rating: "", reviewCount: "" },
@@ -105,9 +109,10 @@ const InfoList = () => {
   return (
     <div className="App">
       <div className="info-list">
-        <h1>Info List</h1>
-        <form onSubmit={handleSubmit}>
+        <h1 className="info-list-title">Info List</h1>
+        <form className="info-form" onSubmit={handleSubmit}>
           <input
+            className="info-input"
             type="text"
             name="title"
             placeholder="Title"
@@ -116,6 +121,7 @@ const InfoList = () => {
             required
           />
           <input
+            className="info-input"
             type="text"
             name="description"
             placeholder="Description"
@@ -124,6 +130,16 @@ const InfoList = () => {
             required
           />
           <input
+            className="info-input"
+            type="text"
+            name="wiki_link"
+            placeholder="Wiki Link"
+            value={newInfo.wiki_link}
+            onChange={handleInputChange}
+            required
+          />
+          <input
+            className="info-input"
             type="number"
             name="price"
             placeholder="Price"
@@ -132,6 +148,7 @@ const InfoList = () => {
             required
           />
           <input
+            className="info-input"
             type="text"
             name="coverImg"
             placeholder="Cover Image URL"
@@ -140,6 +157,7 @@ const InfoList = () => {
             required
           />
           <input
+            className="info-input"
             type="number"
             name="rating"
             placeholder="Rating"
@@ -148,6 +166,7 @@ const InfoList = () => {
             required
           />
           <input
+            className="info-input"
             type="number"
             name="reviewCount"
             placeholder="Review Count"
@@ -156,6 +175,7 @@ const InfoList = () => {
             required
           />
           <input
+            className="info-input"
             type="text"
             name="location"
             placeholder="Location"
@@ -164,6 +184,7 @@ const InfoList = () => {
             required
           />
           <input
+            className="info-input"
             type="number"
             name="openSpots"
             placeholder="Open Spots"
@@ -171,27 +192,25 @@ const InfoList = () => {
             onChange={handleInputChange}
             required
           />
-          <button type="submit">
+          <button className="info-button" type="submit">
             {editingInfo ? "Update Info" : "Add Info"}
           </button>
         </form>
         {infos.length > 0 ? (
-          <ul>
+          <ul className="info-items">
             {infos.map((info) => (
               <li key={info._id.$oid} className="info-item">
-                <h3>{info.title}</h3>
-                <p>{info.description}</p>
-                <p>Price: {info.price}</p>
-                <img src={info.coverImg} alt={info.title} />
-                <p>Rating: {info.stats.rating}</p>
-                <p>Review Count: {info.stats.reviewCount}</p>
-                <p>Location: {info.location}</p>
-                <p>Open Spots: {info.openSpots}</p>
-                <p>Date: {new Date(info.pub_date.$date).toLocaleString()}</p>
-                <button onClick={() => handleEdit(info)}>Edit</button>
-                <button onClick={() => handleDelete(info._id.$oid)}>
-                  Delete
-                </button>
+                <h3 className="info-item-title">{info.title}</h3>
+                <p className="info-item-description">{info.description}</p>
+                <p className="info-item-price">Price: {info.price}</p>
+                <img className="info-item-image" src={info.coverImg} alt={info.title} />
+                <p className="info-item-rating">Rating: {info.stats.rating}</p>
+                <p className="info-item-reviewCount">Review Count: {info.stats.reviewCount}</p>
+                <p className="info-item-location">Location: {info.location}</p>
+                <p className="info-item-openSpots">Open Spots: {info.openSpots}</p>
+                <p className="info-item-date">Date: {new Date(info.pub_date.$date).toLocaleString()}</p>
+                <button className="info-item-button" onClick={() => handleEdit(info)}>Edit</button>
+                <button className="info-item-button" onClick={() => handleDelete(info._id.$oid)}>Delete</button>
               </li>
             ))}
           </ul>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import './TravelData.css';
+import './CSS/TravelData.css';
 
 export default function TravelData() {
     const [data, setData] = useState([]);
@@ -25,7 +25,7 @@ export default function TravelData() {
                     <img src={item.coverImg} alt={item.title} className="card--image" />
                     <div className="card--title">{item.title}</div>
                     <div className="card--stats">
-                        <img src="star-icon.png" alt="star" className="card--star" />
+                        <img src="./images/star.png" alt="star" className="card--star" />
                         <span>{item.stats?.rating}</span>
                         <span className="gray">({item.stats?.reviewCount}) • </span>
                         <span className="gray">{item.location}</span>

@@ -1,0 +1,97 @@
+.App {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .info-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .info-list-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .info-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .info-input {
+    flex: 1 1 45%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .info-button {
+    flex: 1 1 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .info-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .info-items {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .info-item {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .info-item-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .info-item-description,
+  .info-item-price,
+  .info-item-rating,
+  .info-item-reviewCount,
+  .info-item-location,
+  .info-item-openSpots,
+  .info-item-date {
+    margin-bottom: 10px;
+  }
+  
+  .info-item-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .info-item-button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .info-item-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .placeholder {
+    text-align: center;
+    font-size: 1.2em;
+    color: #777;
+  }
+  
