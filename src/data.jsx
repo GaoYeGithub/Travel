@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import './CSS/TravelData.css';
+import "./images/star.png"
 
 export default function TravelData() {
     const [data, setData] = useState([]);

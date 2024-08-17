@@ -3,6 +3,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './components/firebase';
 import Login from './components/Login';
 import Logout from './components/Logout';
+import FAQHub from './components/FAQHub';
 import React from 'react';
 import './CSS/App.css';
 import InfoList from './InfoList';
@@ -24,11 +25,13 @@ function App() {
       {user ? (
         <div>
           <h1>Welcome, {user.email}</h1>
+          <FAQHub />
           <InfoList />
           <Logout />
         </div>
       ) : (
         <div>
+          <FAQHub />
           <TravelData />
           <Login />
         </div>
